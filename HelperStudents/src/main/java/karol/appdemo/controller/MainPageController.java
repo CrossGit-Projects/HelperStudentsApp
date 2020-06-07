@@ -1,0 +1,29 @@
+package karol.appdemo.controller;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.ws.rs.GET;
+
+@Controller
+public class MainPageController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MainPageController.class);
+
+    @GET
+    @RequestMapping(value = {"/", "/index"})
+    public String showMainPage() {
+        LOG.info("**** WYWOŁANO > showMainPage()");
+        return "/index";
+    }
+
+    @GET
+    @RequestMapping(value = {"/index1"})
+    public String showMainPageIndex1() {
+        LOG.info("**** WYWOŁANO > showMainPage----1()");
+        return "/index1";
+    }
+}
